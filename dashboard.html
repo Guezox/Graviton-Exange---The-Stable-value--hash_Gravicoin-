@@ -1,0 +1,19 @@
+<h1>Bienvenue {{ user }}</h1>
+
+<h2>Solde : {{ balance }} €</h2>
+
+<form action="/send" method="post">
+    <input name="receiver" placeholder="Destinataire">
+    <input type="number" step="0.01" name="amount" placeholder="Montant">
+    <button>Envoyer</button>
+</form>
+
+<a href="/logout">Déconnexion</a>
+
+<hr>
+
+<h2>Historique</h2>
+
+{% for t in transactions %}
+<p>{{ t[0] }} → {{ t[1] }} : {{ t[2] }} €</p>
+{% endfor %}
